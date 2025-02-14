@@ -1,78 +1,139 @@
-# 🎉 Welcome to My Site: Liam Cawley's Personal Website! 🌐
+# Personal Website Documentation
+[![Built with Gatsby](https://img.shields.io/badge/Built%20with-Gatsby-663399.svg)](https://www.gatsbyjs.com)
+[![Academic Theme](https://img.shields.io/badge/Theme-Academic-blue.svg)](https://github.com/gcushen/gatsby-theme-academic)
 
-Hello, curious web wanderer! 👋 Welcome to my little corner of the internet powered by Gatsby 🚀 and the gatsby-theme-academic 🎓. Dive right in to discover what’s behind the scenes of my digital presence. Let’s make this journey informative, fun, and of course, full of emojis! 😄
+A personal website built using Gatsby and gatsby-theme-academic, designed to showcase professional work, research, and blog content.
 
-## 📂 Project Structure
+## Project Structure
 
-Here's a quick tour of the project files and folders that you'll encounter in this repository:
+The repository is organized into two main directories:
 
-- **`my_site/website/`**: This is where the magic happens! All the configuration, content, and customizations reside here.
-  - **`content/`**: Contains markdown files for blog posts, research, and tags. This is where your stories come to life! ✨
-  - **`gatsby-config.js`**: Configures your site's essential settings like plugins and metadata.
-  - **`.eslintrc`**: Because clean code is happy code! 🧹
+### Website Directory (`my_site/website/`)
+Main configuration and content directory:
+- `content/`: Markdown files for blog posts, research papers, and tags
+- `gatsby-config.js`: Site configuration and plugin settings
+- `.eslintrc`: Code style and linting configuration
 
-- **`my_site/gatsby-theme-academic/`**: The brain behind the site, providing academic-focused components and layouts.
-  - **`components/`**: Pre-built React components that make your life easier. Think of them as building blocks! 🧱
-  - **`pages/`**: Contains the layout and structure of your website pages.
+### Theme Directory (`my_site/gatsby-theme-academic/`)
+Core theme components and layouts:
+- `components/`: React components for site functionality
+- `pages/`: Page templates and layouts
 
-## 💡 Getting Started
+## Installation
 
-Ready to spin up your own version of the site? Follow these magical steps:
-
-1. **Clone the Repository:**
-   ```
+1. Clone the Repository:
+   ```bash
    git clone <repository-url>
    ```
-   Now you’ve got the whole project on your machine! 🎉
 
-2. **Navigate into Your Project Directory:**
-   ```
+2. Navigate to Project Directory:
+   ```bash
    cd my_site
    ```
 
-3. **Install Dependencies:**
-   First, ensure you have Node.js installed. Then run:
-   ```
+3. Install Dependencies:
+   ```bash
    npm install
    ```
-   This will fetch all the goodies your site needs from the web!
 
-4. **Fire Up Your Development Server:**
-   It’s time to see your site in action:
-   ```
+4. Start Development Server:
+   ```bash
    npm run develop
    ```
-   Pop open your browser and head to `http://localhost:8000` to see the magic happen.
+   Access the development site at `http://localhost:8000`
 
-5. **Build Your Site for Production:**
-   Ready to go live? Run:
-   ```
+5. Build for Production:
+   ```bash
    npm run build
    ```
-   This crafts an optimized version of your site, ready for the world to see! 🌎
 
-## 🎨 Customization Tips
+## Customization
 
-- **Content Editing**: Dive into the `content/` folder to edit existing posts or add new ones. Use markdown to format your rockets 🚀 and rainbows 🌈!
-- **Styling**: Tweak CSS with Less stylesheets located in various modules to give your site that shiny new coat of paint! 🎨
+### Content Management
+The `content/` directory contains all site content in Markdown format:
+```
+content/
+├── blog/
+│   └── posts/
+├── research/
+│   └── publications/
+└── tags/
+```
 
-## 📚 Useful Resources
+### Style Customization
+Modify the site's appearance through:
+- Less stylesheets in component directories
+- Theme configuration in `gatsby-config.js`
+- Component customization in the theme directory
 
-- [Gatsby Documentation](https://www.gatsbyjs.com/docs/): A treasure trove of Gatsby knowledge.
-- [gatsby-theme-academic](https://github.com/gcushen/gatsby-theme-academic): Explore the theme’s documentation for more insight and features.
+## Development Features
 
-## 🚀 Deploying the Site
+- React-based component system
+- Markdown content management
+- Built-in SEO optimization
+- Academic-focused layouts and components
+- Responsive design system
+- Integrated blog functionality
 
-When you’re ready for the world 🌍 to see your creation, deploy your site easily using platforms like Netlify, Vercel, or Gatsby Cloud!
+## Deployment
 
-## 🤔 Got Questions?
+The site can be deployed to various platforms:
+- Netlify
+- Vercel
+- Gatsby Cloud
+- GitHub Pages
 
-If you run into any speed bumps along the way, feel free to open an issue on this repository. Let’s make coding not just productive, but also fun!
+Each platform offers continuous deployment from your repository.
 
-## 🥳 Conclusion
+## Technical Documentation
 
-Now that you have a guided tour of "My Site", unleash your creativity and make this site truly yours! It's time to share your stories, research, and professional journey with the world. Happy coding, and may the source be with you! 🌟
+### Required Dependencies
+- Node.js (v14+)
+- npm or yarn
+- Gatsby CLI
+
+### Development Commands
+```bash
+# Start development server
+npm run develop
+
+# Build production site
+npm run build
+
+# Serve production build locally
+npm run serve
+
+# Clean Gatsby cache
+npm run clean
+```
+
+### Plugin Configuration
+Key plugins include:
+- `gatsby-plugin-react-helmet`: SEO management
+- `gatsby-plugin-less`: Style processing
+- `gatsby-transformer-remark`: Markdown processing
+- `gatsby-source-filesystem`: Content management
+
+## Resources
+
+- [Gatsby Documentation](https://www.gatsbyjs.com/docs/)
+- [gatsby-theme-academic Documentation](https://github.com/gcushen/gatsby-theme-academic)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+
+## Support
+
+For technical issues:
+1. Check existing issues in the repository
+2. Review the Gatsby troubleshooting guide
+3. Open a new issue with:
+   - Development environment details
+   - Steps to reproduce
+   - Expected vs. actual behavior
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-Hope you enjoy your journey with your new and improved website! Happy Hacking! 💻✨
+For questions or collaboration inquiries, please open an issue or contact through the repository.
