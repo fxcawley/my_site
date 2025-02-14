@@ -5,9 +5,9 @@
   "version": "0.2.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build",
-    "develop": "yarn workspace example develop",
-    "clean": "yarn workspace example clean"
+    "build": "yarn workspace website build",
+    "develop": "yarn workspace website develop",
+    "clean": "yarn workspace website clean"
   },
   "workspaces": [
     "gatsby-theme-academic",

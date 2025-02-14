@@ -1,14 +1,14 @@
 module.exports = {
   pathPrefix: '/gatsby-theme-academic',
-  siteUrl: 'cawley.dev',
+  siteUrl: 'https://www.cawley.dev',
   title: 'Liam Cawley',
   description: 'Personal Website of Liam Cawley',
   author: 'Liam Cawley',
   authorAlternative: '连姆·考利',
   introduction: [
-    'I am an undergraduate student at the <a href="https://www.umich.edu"> University of Michigan.',
+    'I am an undergraduate student at the <a href="https://www.umich.edu"> University of Michigan. I am interested in pre-doctoral programs in machine learning.',
   ],
-  avatar: 'headshot.png',
+  avatar: './headshot.png',
   professions: [
     'Research Engineer',
     'Student',
@@ -32,7 +32,7 @@ module.exports = {
   },
   social: [
     {
-      url: '/resume.pdf',
+      url: '/LiamCawleyResume.pdf',
       icon: ['ai', 'cv'],
     }, {
       url: 'https://github.com/cawley',
@@ -106,9 +106,9 @@ module.exports = {
           },
           {
             date: 'June 2022 - August 2022',
-            title: 'Line Cook',
+            title: 'Line Cook/Handyman',
             location: "Little Frankie's, Manhattan, NY",
-            description: 'Worked night shifts while maintaining day internship at RTX Fintech.',
+            description: 'Worked night shifts 18:00 - 02:00 while maintaining day internship at RTX Fintech.',
           },
         ],
       },
@@ -120,16 +120,16 @@ module.exports = {
             date: 'January 2022 - May 2022',
             title: 'Math Lab Tutor',
             location: 'University of Michigan',
-            description: 'Teaching Assistant for Math 216: Introduction to Differential Equations',
+            description: 'Teaching Assistant for Math 216: Introduction to Differential Equations. Assisted students with problem sets and exam preparation in the Math LAB.',
           },
         ],
       },
       {
         title: 'Volunteer',
-        position: 'left',
+        position: 'right',
         data: [
           {
-            date: 'September 2024 - Present',
+            date: 'December 2019 - August 2021',
             title: 'Meals on Wheels Volunteer',
             location: 'Harlem, NY',
             description: 'Supported meal delivery service for seniors and disabled residents.',
@@ -138,7 +138,7 @@ module.exports = {
             date: 'June 2023 - August 2023',
             title: 'Get Out Stay Out Volunteer',
             location: 'New York, NY',
-            description: 'Assisted with community outreach and support programs.',
+            description: 'Assisted with community outreach and support programs to end recidivism in the East Harlem.',
           },
           {
             date: 'June 2022 - August 2022',
