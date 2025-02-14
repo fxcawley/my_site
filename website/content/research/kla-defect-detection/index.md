@@ -3,20 +3,25 @@ title: "Needles in a Silicon Haystack"
 tags:
   - "deep-learning"
   - "computer-vision"
-  - "semiconductors"
-  - "defect-detection"
+  - "hotspot-detection"
   - "machine-learning"
   - "neural-networks"
-date: 2024-08-10
+date: 2024-08
 venue: KLA Corporation, Broadband Plasma Division
 authors:
+<<<<<<< HEAD
   - name: "Liam Cawley"
+=======
+  name: "Liam Cawley"
+  url: "mailto:cawleyl@umich.edu"
+>>>>>>> refs/remotes/origin/master
 path: "research/kla-defect-detection"
-excerpt: This research addresses a fundamental challenge in semiconductor manufacturing: detecting critical defects at advanced nodes (sub-10nm) where traditional optical inspection methods reach their physical limits. We present a novel deep learning approach that operates directly on design files rather than physical defect images, enabling predictive defect detection before wafer fabrication. Our system achieves 93% AUC while maintaining extremely low false negative rates (<0.001%) for critical defects, representing a 5x improvement over previous production systems.
+excerpt: This research addresses a fundamental challenge in semiconductor manufacturing -- detecting critical defects at advanced nodes (sub-10nm) where traditional optical methods reach their physical limits. We present a novel deep learning approach that operates directly on the design files (in RDF format) rather than physical defect images, which can be unreliable due to difficulty in reliable imaging of advanced nodes. This enables a novel approach -- predictive defect detection before wafer fabrication. Our system achieves 93% AUC while maintaining extremely low false negative rates (<0.001%) for critical defects, representing a 5x improvement over previous production systems.
 selected: true
 cover: "./kla_preview.png"
 priority: 2
 ---
+
 
 # Deep Learning for Semiconductor Defect Detection 🔍
 
