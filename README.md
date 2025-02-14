@@ -23,7 +23,7 @@ Core theme components and layouts:
 
 1. Clone the Repository:
    ```bash
-   git clone <repository-url>
+   git clone https://www.github.com/fxcawley/my_site
    ```
 
 2. Navigate to Project Directory:
