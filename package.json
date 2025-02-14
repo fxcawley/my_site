@@ -11,11 +11,11 @@
   },
   "workspaces": [
     "gatsby-theme-academic",
-    "example"
+    "website"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tc-imba/greatest-gatsby-academic-template"
+    "url": "https://github.com/fxcawley/my_site"
   },
   "keywords": [
     "gatsby",
