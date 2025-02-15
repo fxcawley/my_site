@@ -142,4 +142,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For questions or collaboration opportunities, please reach out through GitHub issues or email.
 
 ---
-Built with ❤️ by [Your Name]
+Built with ❤️ by Liam Cawley
