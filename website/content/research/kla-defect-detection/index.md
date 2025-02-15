@@ -10,7 +10,6 @@ date: 2024-08
 venue: KLA Corporation, Broadband Plasma Division
 authors:
   - name: "Liam Cawley"
-    url: "mailto:cawleyl@umich.edu"
 path: "research/kla-defect-detection"
 excerpt: This research addresses a fundamental challenge in semiconductor manufacturing -- detecting critical defects at advanced nodes (sub-10nm) where traditional optical methods reach their physical limits. We present a novel deep learning approach that operates directly on the design files (in RDF format) rather than physical defect images, which can be unreliable due to difficulty in reliable imaging of advanced nodes. This enables a novel approach -- predictive defect detection before wafer fabrication. Our system achieves 93% AUC while maintaining extremely low false negative rates (<0.001%) for critical defects, representing a 5x improvement over previous production systems.
 selected: true
