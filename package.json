@@ -1,27 +1,17 @@
 {
-  "name": "greatest-gastby-academic-template",
   "private": true,
-  "description": "the most beautiful gatsby template ever designed using semi design",
-  "version": "0.2.0",
+  "name": "website",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace website build",
-    "develop": "yarn workspace website develop",
-    "clean": "yarn workspace website clean"
+    "build": "gatsby build --prefix-paths",
+    "develop": "gatsby develop",
+    "clean": "gatsby clean"
   },
-  "workspaces": [
-    "gatsby-theme-academic",
-    "website"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fxcawley/my_site"
-  },
-  "keywords": [
-    "gatsby",
-    "gatsby-plugin",
-    "markdown"
-  ],
-  "dependencies": {},
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "dependencies": {
+    "gatsby": "^5.13.3",
+    "gatsby-theme-academic": "*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
