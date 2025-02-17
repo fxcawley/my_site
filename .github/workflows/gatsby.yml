@@ -52,10 +52,10 @@ jobs:
         run: |
           yarn build || echo "Gatsby build failed!"
 
-      - name: Debug: List Files
+      - name: List Files
         run: ls -la
 
-      - name: Debug: Check Public Directory
+      - name: Check Public Directory
         run: ls -la public/ || echo "Public directory not found!"
 
       - name: Upload artifact
