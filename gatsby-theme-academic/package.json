@@ -63,7 +63,7 @@
     "github-markdown-css": "^5.5.1",
     "hogan.js": "^3.0.2",
     "is-relative-url": "^4.0.0",
-    "katex": "^0.16.9",
+    "katex": "^0.16.21",
     "less": "^4.1.1",
     "lodash": "^4.17.21",
     "lunr": "^2.3.9",
