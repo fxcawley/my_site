@@ -9,6 +9,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@napi-rs/canvas": "^0.1.67",
     "gatsby": "^5.13.3",
     "gatsby-theme-academic": "*",
     "react": "^18.2.0",
