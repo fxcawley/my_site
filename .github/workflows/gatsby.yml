@@ -79,6 +79,10 @@ jobs:
         env:
           PREFIX_PATHS: 'true'
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
+      - name: Debug: List files in ROOT
+        run: ls -la
+      - name: Debug: List files in PUBLIC
+        run: ls -la /public || echo "PUBLIC NOT FOUND"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
