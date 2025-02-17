@@ -2,12 +2,10 @@
 title: "Steiner Network Design: A Formal Introduction"
 tags: ["optimization", "networks", "algorithms", "graph-theory", "linear-programming"]
 date: 2025-02-17
-cover: "./preview.png"
+cover: "./steiner-tree-preview.png"
 path: "posts/steiner-network-formal"
-excerpt: A rigorous introduction to Steiner Network Design, focusing on formulations, submodularity, and proof techniques.
+excerpt: What follows are some notes on Steiner Network Design, in accordance with my lectures in EECS 598-001 Hardness of Approximation with Prof. Euiwoong Lee. I'll start with formal definitions and work through the key theoretical components. This is part 1 of a series - future posts will expand on applications and implementation details.
 ---
-
-What follows are some notes on Steiner Network Design, in accordance with my lectures in EECS 598-001 Hardness of Approximation with Prof. Euiwoong Lee. I'll start with formal definitions and work through the key theoretical components. This is part 1 of a series - future posts will expand on applications and implementation details.
 
 ## 1. Problem Definition
 
