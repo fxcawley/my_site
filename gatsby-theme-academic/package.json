@@ -110,7 +110,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-webpack-plugin": "^4.0.1",
     "typescript": "^5.2.2",
-    "webpack": "^5.89.0"
+    "webpack": "^5.94.0"
   },
   "babel": {
     "presets": [
