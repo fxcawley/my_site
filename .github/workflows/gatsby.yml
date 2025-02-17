@@ -1,5 +1,5 @@
 # Workflow to build and deploy a Gatsby site to GitHub Pages
-name: Deploy Gatsby site to Pages
+name: Deploy Gatsby Site to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -15,8 +15,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -66,8 +65,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            public
-            .cache
+            website/public
+            website/.cache
           key: ${{ runner.os }}-gatsby-build-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
@@ -75,25 +74,29 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Clear Gatsby Cache (if exists)
-        run: rm -rf .cache public || echo "No cache to clear"
+      - name: Clear Gatsby Cache
+        run: |
+          rm -rf website/.cache website/public || echo "No cache to clear"
 
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
         run: |
+          cd website
           ${{ steps.detect-package-manager.outputs.manager }} run build || echo "Gatsby build failed!"
 
-      - name: List Files in Root
-        run: ls -la
+      - name: Debug List Files in Root
+        run: |
+          ls -la
 
-      - name: List Files in Public Directory
-        run: ls -la public/ || echo "Public directory not found!"
+      - name: Debug List Files in Public Directory
+        run: |
+          ls -la website/public/ || echo "Public directory not found!"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./website/public
 
   # Deployment job
   deploy:
