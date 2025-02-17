@@ -2,7 +2,9 @@
 [![Built with Gatsby](https://img.shields.io/badge/Built%20with-Gatsby-663399.svg)](https://www.gatsbyjs.com)
 [![Academic Theme](https://img.shields.io/badge/Theme-Academic-blue.svg)](https://github.com/gcushen/gatsby-theme-academic)
 
-A personal website built using Gatsby and gatsby-theme-academic, designed to showcase professional work, research, and blog content.
+A personal website for Liam Cawley built using Gatsby and gatsby-theme-academic, designed to showcase professional work, research, and blog content. 
+
+Framework design author: https://www.github.com/tc-imba
 
 ## Project Structure
 
