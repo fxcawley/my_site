@@ -1,85 +1,165 @@
 ---
-title: "A Gentle Introduction to Steiner Network Design"
-tags: ["algorithms", "optimization", "networks", "mathematics", "computer-science"]
+title: "Steiner Network Design: A Formal Introduction"
+tags: ["optimization", "networks", "algorithms", "graph-theory", "linear-programming"]
 date: 2025-02-17
 cover: "./preview.png"
-path: "posts/steiner-network-design"
-excerpt: An approachable introduction to Steiner Network Design, exploring its mathematical foundations and applications in network optimization.
+path: "posts/steiner-network-formal"
+excerpt: A rigorous introduction to Steiner Network Design, focusing on formulations, submodularity, and proof techniques.
 ---
 
-This post aims to introduce the fascinating world of Steiner Network Design - a fundamental problem in network optimization that has applications ranging from VLSI circuit design to phylogenetic tree reconstruction.
+What follows are some notes on Steiner Network Design, in accordance with my lectures in EECS 598-001 Hardness of Approximation with Prof. Euiwoong Lee. I'll start with formal definitions and work through the key theoretical components. This is part 1 of a series - future posts will expand on applications and implementation details.
 
-## The Core Problem
+## 1. Problem Definition
 
-Let's start with a clear definition. In the Steiner Network Problem, we have:
+Let $G = (V, E)$ be an undirected graph with costs $c(e) \geq 0$ for each edge $e \in E$. Given connectivity requirements $r(u,v)$ for pairs $(u,v) \in V \times V$, we want to find a minimum-cost subgraph $H \subseteq G$ satisfying these requirements.
 
-$$G = (V, E)$$
+Formally:
 
-which represents an undirected graph with a nonnegative cost $c(e)$ on each edge $e \in E$. For certain pairs of vertices $(u,v)$, we need to ensure a specific level of connectivity $r(u,v)$. Our goal? Find the cheapest subgraph that satisfies all these connectivity requirements.
+**Input**: 
+1. $G = (V,E)$ with $c(e) \geq 0$
+2. $r: V \times V \to \mathbb{Z}_{\geq 0}$
 
-Formally, we seek to:
+**Output**: $H \subseteq G$ minimizing $\sum_{e \in E(H)} c(e)$
 
-$$\text{minimize} \sum_{e \in E(H)} c(e)$$
+**Constraint**: For all pairs $(u,v)$, edge-connectivity $\lambda_H(u,v) \geq r(u,v)$
 
-subject to connectivity constraints for each vertex pair.
+## 2. LP Formulation
 
-## Special Cases You Might Know
+The canonical approach uses cut-based linear programs. For each $e \in E$, let $x_e \geq 0$ indicate how "much" of edge $e$ we take.
 
-The beauty of the Steiner Network Problem lies in its generality. It encompasses several classic problems:
+First, define cut demand:
 
-1. **Steiner Tree Problem**: Connect a specific set of terminals $T \subseteq V$ with minimum cost
-2. **Steiner Forest Problem**: Connect groups of vertices internally
-3. **Minimum Spanning Tree**: Connect all vertices (when $r(u,v) = 1$ for all pairs)
+$$r(S) = \max_{u\in S,\;v\notin S} r(u,v)$$
 
-## The Mathematical Heart: Linear Programming
-
-The standard approach uses cut-based linear programs. For each edge $e$, we introduce a variable $x_e \geq 0$. The key constraints ensure that each cut has enough edges to maintain required connectivity:
+This gives us:
 
 $$
 \begin{aligned}
-\text{minimize} && \sum_{e\in E} c(e)x_e\\
-\text{subject to} && \sum_{e \in \delta(S)} x_e \geq r(S) && \forall S \subset V\\
-&& x_e \geq 0 && \forall e \in E
+\text{(IP)}\quad
+&\min && \sum_{e\in E} c(e)x_e\\
+&\text{s.t.} && \sum_{e \in \delta(S)} x_e \geq r(S) \quad &&\forall\,S \subset V,\; S\neq\emptyset,\,S\neq V,\\
+&&& x_e \in \{0,1,\dots\}\quad &&\forall\,e \in E.
 \end{aligned}
 $$
 
-where $r(S)$ represents the maximum connectivity requirement across cut $S$.
+Typically relaxed to $x_e \geq 0$.
 
-## The Power of Submodularity
+## 3. Sub/Supermodularity 
 
-A key concept in understanding these problems is submodularity. A function $f$ is submodular if:
+This is where things get interesting. Many network design problems exhibit submodular or supermodular structure.
+
+**Def**: $f: 2^V \to \mathbb{R}$ is submodular if for all $A,B \subseteq V$:
 
 $$f(A) + f(B) \geq f(A \cup B) + f(A \cap B)$$
 
-This property captures the idea of "diminishing returns" and appears naturally in network cuts. It's crucial for:
-- Developing efficient algorithms
-- Proving approximation bounds
-- Understanding the structure of optimal solutions
+**Def**: $g$ is supermodular if $-g$ is submodular.
 
-## Laminar Families: A Beautiful Structure
+In network design:
+- Cut capacity functions are often submodular
+- Deficit/surplus functions across cuts can be supermodular
+- These properties are crucial for:
+  1. Uncrossing arguments
+  2. Approximation bounds
+  3. Integrality proofs
 
-One of the most elegant aspects of Steiner network theory is the emergence of laminar families. A family of sets $\mathcal{F}$ is laminar if for any two sets $S, T \in \mathcal{F}$, either:
-- $S \subseteq T$
-- $T \subseteq S$
+## 4. Laminar Families
+
+A family $\mathcal{F} \subseteq 2^V$ is laminar if for any $S,T \in \mathcal{F}$:
+- $S \subseteq T$, or
+- $T \subseteq S$, or
 - $S \cap T = \emptyset$
 
-This structure often emerges through "uncrossing" arguments and helps simplify exponentially many constraints into a manageable form.
+**Key Point**: Through uncrossing arguments, we can often reduce exponentially many constraints to a laminar family without losing optimality.
 
-## Applications Beyond Theory
+**Uncrossing Lemma**: For crossing violating cuts $S,T$, we can replace them with $S \cap T$ and $S \cup T$ while maintaining feasibility.
 
-The concepts we've discussed find applications in:
-- VLSI circuit design
+## 5. Integrality and Tightness
+
+The LP relaxation usually isn't integral. Key questions:
+1. What's the integrality gap?
+2. How do we get integer solutions?
+
+Standard approach:
+1. Find optimal LP solution
+2. Show tight sets form laminar family
+3. Use iterative rounding or primal-dual
+
+[More on this in a future post focusing on approximation algorithms.]
+
+## 6. Applications
+
+Quick hits (each deserves its own post):
+- VLSI design
+- Network infrastructure
+- Phylogenetic trees
 - Telecommunication networks
-- Phylogenetic tree reconstruction
-- Network infrastructure planning
 
-## Concluding Thoughts
+## Next Up
 
-Steiner Network Design beautifully demonstrates how abstract mathematical concepts like submodularity and laminar families can lead to practical solutions in network design. Whether you're working on circuit design or biological networks, the principles we've discussed provide a powerful framework for tackling complex connectivity problems.
+Planning posts on:
+1. Approximation algorithms and tight examples
+2. Implementation techniques 
+3. Real-world applications
+4. Extensions to directed/weighted cases
 
-For those interested in diving deeper, I recommend exploring:
-- The duality between flows and cuts
-- Approximation algorithms for various Steiner problems
-- Applications in your specific domain of interest
+## 7. MST: The Base Case
 
-*This post just scratches the surface of this rich field. Feel free to reach out if you'd like to discuss specific aspects in more detail!*
+Let's dig into the simplest non-trivial case: Minimum Spanning Tree (MST). This gives concrete intuition for the abstract machinery we've covered.
+
+In MST, we have $r(u,v) = 1$ for all pairs $(u,v)$, and all vertices are terminals. This leads to:
+
+$
+\begin{aligned}
+\min && \sum_{e\in E} c(e)x_e\\
+\text{s.t.} && \sum_{e \in \delta(S)} x_e \geq 1 \quad &&\forall S \subset V,\\
+&& x_e \in \{0,1\} &&\forall e \in E.
+\end{aligned}
+$
+
+### 7.1 Quick Example
+
+Take $V = \{A,B,C,D\}$ with edges:
+$E = \{(A,B),(A,C),(B,C),(B,D),(C,D)\}$
+$c(A,B) = 3, c(A,C) = 1, c(B,C) = 2, c(B,D) = 4, c(C,D) = 3$
+
+Optimal solution: $\{(A,C),(B,C),(C,D)\}$ with cost 6.
+
+### 7.2 The Cut Property
+
+**Theorem**: If $e$ is the minimum-cost edge crossing cut $(S,V\setminus S)$, then some minimum spanning tree includes $e$.
+
+This emerges from submodularity and leads to greedy algorithms like Kruskal's. Key insight: Crossing minimal edges are always safe to take.
+
+### 7.3 Why MST is Special
+
+1. The LP is totally unimodular
+2. Integrality gap = 1
+3. Extreme points are integral
+4. Combinatorial algorithms (Kruskal/Prim) directly solve the LP
+
+This "niceness" vanishes when:
+- $r(u,v) > 1$ for some pairs
+- Only certain vertices are terminals
+- Edge capacities enter the picture
+
+## 8. From MST to General Steiner
+
+The jump from MST to general Steiner networks shows exactly where things get hard:
+
+1. **LP Integrality**: MST's perfect integrality breaks
+2. **Cut Structure**: Instead of uniform demands ($r(S) = 1$), we get complex requirements
+3. **Solution Space**: The spanning tree polytope's structure is lost
+
+Yet the tools persist:
+- Submodularity guides cut-based arguments
+- Uncrossing reduces to laminar families
+- Iterative rounding replaces natural integrality
+
+## Next Steps
+
+1. Approximation algorithms and tight examples
+2. Implementation techniques 
+3. Real-world applications
+4. Extensions to directed/weighted cases
+
+[Comments enabled - hit me up with questions/corrections]
