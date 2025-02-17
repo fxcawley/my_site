@@ -8,7 +8,7 @@ module.exports = {
   introduction: [
     'I am an undergraduate student at the <a href="https://www.umich.edu"> University of Michigan. I am interested in pre-doctoral programs in machine learning.',
   ],
-  avatar: './headshot.png',
+  avatar: 'headshot.png',
   professions: [
     'Research Engineer',
     'Student',
@@ -90,25 +90,25 @@ module.exports = {
             date: 'May 2024 - August 2024',
             title: 'High Performance Computing Intern',
             location: 'KLA Corporation, San Jose, CA',
-            description: 'Developed a 34-layer ResNet architecture for nanoscale semiconductor defect detection. Achieved sub-0.001% false negative rate while maintaining under 5% false positives. Implemented custom loss functions and adaptive sampling techniques.',
+            description: 'Developed novel image processing CNNs for semiconductor manufacturing. Collaborated with cross-functional teams to optimize algorithms for high-performance computing environments. Conducted performance benchmarking and analysis of machine learning models.',
           },
           {
             date: 'May 2023 - August 2023',
             title: 'Machine Learning Intern',
             location: 'EMAG Technologies, Ann Arbor, MI',
-            description: 'Developed novel calibration algorithms for phased array systems, achieving 650% performance improvement. Designed CNN architecture for large-scale system optimization. Applied adaptive nulling techniques for SDR arrays.',
+            description: 'Developed novel calibration algorithms for phased array systems.',
           },
           {
             date: 'May 2022 - August 2022',
             title: 'Software Engineering Intern',
             location: 'RTX Fintech & Research, New York, NY',
-            description: 'Built full-stack features for interest rate derivatives platform. Developed API endpoints using Django for financial curve construction. Implemented Price/Time Priority algorithm for trade execution.',
+            description: 'Built full-stack features for interest rate derivatives platform.',
           },
           {
             date: 'June 2022 - August 2022',
             title: 'Line Cook/Handyman',
             location: "Little Frankie's, Manhattan, NY",
-            description: 'Worked night shifts 18:00 - 02:00 while maintaining day internship at RTX Fintech.',
+            description: 'Worked night shifts, built out shelving, painted and cooked for the late night extension of Little Frankies.',
           },
         ],
       },
