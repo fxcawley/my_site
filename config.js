@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/gatsby-theme-academic',
+  //pathPrefix: '/gatsby-theme-academic',
   siteUrl: 'https://www.cawley.dev',
   title: 'Liam Cawley',
   description: 'Personal Website of Liam Cawley',
