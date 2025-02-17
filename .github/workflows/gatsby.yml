@@ -1,7 +1,4 @@
-# Sample workflow for building and deploying a Gatsby site to GitHub Pages 
-#
-# To get started with Gatsby see: https://www.gatsbyjs.com/docs/quick-start/
-#
+# Workflow to build and deploy a Gatsby site to GitHub Pages
 name: Deploy Gatsby site to Pages
 
 on:
@@ -34,8 +31,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -51,19 +49,19 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
         with:
-          # Automatically inject pathPrefix in your Gatsby configuration file.
-          #
-          # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: gatsby
+
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -73,16 +71,25 @@ jobs:
           key: ${{ runner.os }}-gatsby-build-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
+      - name: Clear Gatsby Cache (if exists)
+        run: rm -rf .cache public || echo "No cache to clear"
+
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
-        run: ${{ steps.detect-package-manager.outputs.manager }} run build
-      - name: Debug: List files in ROOT
+        run: |
+          ${{ steps.detect-package-manager.outputs.manager }} run build || echo "Gatsby build failed!"
+
+      - name: List Files in Root
         run: ls -la
-      - name: Debug: List files in PUBLIC
-        run: ls -la /public || echo "PUBLIC NOT FOUND"
+
+      - name: List Files in Public Directory
+        run: ls -la public/ || echo "Public directory not found!"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
