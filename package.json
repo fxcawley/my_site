@@ -1,17 +1,26 @@
 {
+  "name": "greatest-gastby-academic-template",
   "private": true,
-  "name": "example",
-  "version": "1.0.0",
+  "description": "the most beautiful gatsby template ever designed using semi design",
+  "version": "0.2.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "clean": "gatsby clean"
   },
-  "dependencies": {
-    "gatsby": "^5.13.3",
-    "gatsby-theme-academic": "*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+  "workspaces": [
+    "gatsby-theme-academic",
+    "example"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tc-imba/greatest-gatsby-academic-template"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "markdown"
+  ],
+  "dependencies": {}
 }
